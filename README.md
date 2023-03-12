@@ -58,4 +58,6 @@ cert-manager                        cert-manager-webhook-545bd5d7d8-b52pm       
 ...
 ```
 
-### 
+### create Kubernetes cluster
+- Using https://github.com/kubernetes-sigs/cluster-api-provider-openstack/blob/main/templates/cluster-template-external-cloud-provider-flatcar.yaml
+- Run ```./03_create_cluster.sh```
