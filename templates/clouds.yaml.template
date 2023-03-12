@@ -1,0 +1,13 @@
+clouds:
+  openstack:
+    insecure: true
+    verify: false
+    identity_api_version: 3
+    auth:
+      auth_url: ${OS_AUTH_URL}
+      project_name: ${OS_PROJECT_NAME}
+      username: ${OS_USERNAME}
+      password: ${OS_PASSWORD}
+      project_domain_name: ${OS_PROJECT_DOMAIN_ID}
+      user_domain_name: ${OS_USER_DOMAIN_NAME}
+    region: ${OS_REGION_NAME}

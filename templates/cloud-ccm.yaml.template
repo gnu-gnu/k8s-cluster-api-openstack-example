@@ -1,0 +1,20 @@
+cluster:
+  name: ${CLUSTER_NAME}
+cloudConfig:
+  global:
+    region: ${OS_REGION_NAME}
+    domain-id: ${OS_PROJECT_DOMAIN_ID}
+    tenant-name: ${OS_PROJECT_NAME}
+    auth-url: ${OS_AUTH_URL}
+    username: ${OS_USERNAME}
+    password: ${OS_PASSWORD}
+    tls-insecure: "true"
+  networking:
+  loadBalancer:
+    floating-network-id: ${OPENSTACK_EXTERNAL_NETWORK_ID}
+tolerations:
+  - key: node.cloudprovider.kubernetes.io/uninitialized
+    value: "true"
+    effect: NoSchedule
+  - key: node-role.kubernetes.io/controlplane
+    value: "true"
