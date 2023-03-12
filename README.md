@@ -37,7 +37,25 @@ Deploy the cluster on Openstack using the Kubernetes cluster-api.
 
 ### create openstack keypair
 - Before creating openstack keypair, apply Openstack RC file to your environment variable
+- If you want to use existing keypair, skip this
 - Run ```./01_create_openstack_keypair.sh {keypair name}```
   it removes existing keypair in Openstack if exists and create new keypair as given name and generate PEM file
 
 ### create kind cluster and initialize open
+- Before doing this, kind and clusterctl should be installed.
+- Run ```./02_init_infra.sh``` it will create kind cluster and initialize openstack provider
+- After finish, ```kubectl get pods -A``` will be like below
+```
+$ kubectl get pods -A
+NAMESPACE                           NAME                                                             READY   STATUS    RESTARTS   AGE
+capi-kubeadm-bootstrap-system       capi-kubeadm-bootstrap-controller-manager-779c75bd7c-rvbsh       1/1     Running   0          22h
+capi-kubeadm-control-plane-system   capi-kubeadm-control-plane-controller-manager-598ddfdb99-bvrnq   1/1     Running   0          22h
+capi-system                         capi-controller-manager-54644484d5-lpndm                         1/1     Running   0          22h
+capo-system                         capo-controller-manager-775d744795-8tb8x                         1/1     Running   0          22h
+cert-manager                        cert-manager-99bb69456-bhzrb                                     1/1     Running   0          22h
+cert-manager                        cert-manager-cainjector-ffb4747bb-mdtns                          1/1     Running   0          22h
+cert-manager                        cert-manager-webhook-545bd5d7d8-b52pm                            1/1     Running   0          22h
+...
+```
+
+### 
